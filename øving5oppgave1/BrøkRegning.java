@@ -24,6 +24,8 @@ public class BrøkRegning {
 	
 	
 	public static void main(String[] args) {
+		
+		
 	BrøkRegning Brøk1 = new BrøkRegning(9,3);
 	BrøkRegning Brøk2 = new BrøkRegning(2);
 	
