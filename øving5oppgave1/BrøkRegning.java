@@ -3,7 +3,7 @@ package øving5oppgave1;
 public class BrøkRegning {
 	private static double nevner;
 	private static double teller;
-	public static double resultat;
+	public  static double resultat;
 	private static double brøkC1;
 	private static double brøkC2;
 	
