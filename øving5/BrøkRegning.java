@@ -1,4 +1,4 @@
-package øving5oppgave1;
+package øving5;
 
 public class BrøkRegning {
 	private static double nevner;
