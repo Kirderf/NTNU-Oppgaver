@@ -30,10 +30,14 @@ public class BrøkRegning {
 	Brøk Brøk1 = new Brøk(tellerBrok1,nevnerBrok1);
 	Brøk Brøk2 = new Brøk(tellerBrok2);
 	
-	System.out.println("Summen av brøkene er: "+Brøk.calcSum(Brøk1.brøk,Brøk2.brøk));
-	System.out.println("Brøk1 minus Brøk2 er: "+Brøk.calcSub(Brøk1.brøk,Brøk2.brøk));
-	System.out.println("Brøkene multiplisert er: " + Brøk.calcMulti(Brøk1.brøk,Brøk2.brøk));
-	System.out.println("Brøk1 dele på brøk2 er: " + Brøk.calcDel(Brøk1.brøk,Brøk2.brøk));
 	
+	Brøk1.calcSum(Brøk2);
+	System.out.println(Brøk1);
+	Brøk1.calcSub(Brøk2);
+	System.out.println(Brøk1);
+	Brøk1.calcMulti(Brøk2);
+	System.out.println(Brøk1);
+	Brøk1.calcDel(Brøk2);
+	System.out.println(Brøk1);
 	}	
 }

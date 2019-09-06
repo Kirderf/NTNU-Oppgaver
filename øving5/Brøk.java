@@ -3,7 +3,7 @@ package øving5;
 public class Brøk {
 	private double nevner;
 	private double teller;
-	public double brøk;
+	private double resultat;
 	
 	public Brøk(double teller, double nevner) {
 		  if (nevner == 0) {
@@ -11,28 +11,47 @@ public class Brøk {
 		  }
 		  this.nevner = nevner;
 		  this.teller = teller;
-		  this.brøk = teller/nevner;
+		  this.resultat = teller/nevner;
 	}
 	public Brøk(double teller) {
 		this.nevner = 1;
 		this.teller = teller;
-		this.brøk = teller/nevner;
+		this.resultat = teller/nevner;
 	}
 	
-	public static double calcSum(double brøk1, double brøk2) {
-		return brøk1 + brøk2;
+	public void calcSum(Brøk brøk2) {
+		this.teller = (this.teller*brøk2.getNevner())+(brøk2.getTeller()*this.nevner);
+		this.nevner = (this.nevner*brøk2.getNevner());
+		this.resultat = (this.teller/this.nevner);
+						
 	}
-	public static double calcSub(double brøk1, double brøk2) {
-		return brøk1 - brøk2;
+	public void calcSub(Brøk brøk2) {
+		this.teller = (this.teller*brøk2.getNevner())-(brøk2.getTeller()*this.nevner);
+		this.nevner = (this.nevner*brøk2.getNevner());
+		this.resultat = (this.teller/this.nevner);
 	}
-	public static double calcMulti(double brøk1, double brøk2) {
-		return brøk1*brøk2;
+	public void calcMulti(Brøk brøk2) {
+		this.teller = this.teller*brøk2.getTeller();
+		this.nevner = this.nevner*brøk2.getNevner();
+		this.resultat =  this.teller/this.nevner;
 	}
-	public static double calcDel(double brøk1, double brøk2) {
-		return brøk1/brøk2;
+	public void calcDel(Brøk brøk2) {
+		this.teller = this.teller*brøk2.getNevner();
+		this.nevner = this.nevner*brøk2.getTeller();
+		this.resultat =  this.teller/this.nevner;
 	}
-	
-	
+	public double getResultat() {
+		return this.resultat;
+	}
+	public double getNevner() {
+		return this.nevner;
+	}
+	public double getTeller() {
+		return this.teller;
+	}
+	public String toString() {
+		return ("Resultat:"+this.resultat+" Nevner:"+this.nevner+" Teller:"+ this.teller);
+	}
 
 
 }
