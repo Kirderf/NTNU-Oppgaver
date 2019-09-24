@@ -48,7 +48,7 @@ public final class Matriser {
 		if (!(Matrise1.getColumns() == Matrise2.getRows())) {
 			return null;
 		}
-		System.err.println("Createing local Matrix");
+		System.err.println("Creating local Matrix");
 		Matriser Matrise3 = new Matriser(Matrise1.getRows(), Matrise2.getColumns());
 
 		System.err.println("Multiplying Matrixes");
