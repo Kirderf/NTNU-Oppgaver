@@ -1,9 +1,9 @@
 package øving8;
 
-public class Person {
-	protected String fornavn;
-	protected String etternavn;
-	protected int fødselsår;
+public final class Person {
+	private String fornavn;
+	private String etternavn;
+	private int fødselsår;
 
 	Person(String fornavn, String etternavn, int fødselsår) {
 		this.fornavn = fornavn;

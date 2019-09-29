@@ -31,7 +31,7 @@ public final class NyString {
 		String[] ord = teksten.split(" ");
 		String forkortettekst = "";
 		for (int i = 0; i < ord.length; i++) {
-			forkortettekst = forkortettekst + Character.toString(ord[i].charAt(0));
+			forkortettekst += Character.toString(ord[i].charAt(0));
 		}
 		return forkortettekst;
 

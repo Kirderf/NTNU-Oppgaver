@@ -1,28 +1,21 @@
 package øving8;
 
-public class ArbTaker extends Person {
+public class ArbTaker {
 	int arbtakernr;
 	int ansettelseår;
 	double månedslønnBrutto;
-	int SKATTEPROSENT = 15;
-	java.util.GregorianCalendar kalender = new java.util.GregorianCalendar();
-	int år = kalender.get(java.util.Calendar.YEAR);
+	static final int SKATTEPROSENT = 15;
+	Person personalia;
 
-	ArbTaker(String fornavn, String etternavn, int fødselsår, int arbtakernr, int ansettelsesår,
-			double månedslønnBrutto) {
-		super(fornavn, etternavn, fødselsår);
+	ArbTaker(Person Person, int arbtakernr, int ansettelsesår, double månedslønnBrutto) {
+		this.personalia = Person;
 		this.arbtakernr = arbtakernr;
 		this.ansettelseår = ansettelsesår;
 		this.månedslønnBrutto = månedslønnBrutto;
-
 	}
 
-	public String toString() {
-		return (this.getFultNavn() + "\n" + this.getAlder() + "\n" + "Arbeidstakernr: " + this.arbtakernr + "\n"
-				+ "Månedslønn Brutto: " + this.månedslønnBrutto + "\n" + "Skattbetalt i måneden: "
-				+ this.getSkattMåned() + "\n" + "Skattbetalt i året: " + this.getSkattÅr() + "\n" + "Skatteprosent: "
-				+ this.SKATTEPROSENT);
-	}
+	java.util.GregorianCalendar kalender = new java.util.GregorianCalendar();
+	int år = kalender.get(java.util.Calendar.YEAR);
 
 	public double getSkattMåned() {
 		return månedslønnBrutto * ((double) SKATTEPROSENT / 100);
@@ -30,7 +23,6 @@ public class ArbTaker extends Person {
 
 	public double getÅrslønn() {
 		return månedslønnBrutto * 12;
-
 	}
 
 	public double getSkattÅr() {
@@ -38,15 +30,26 @@ public class ArbTaker extends Person {
 	}
 
 	public int getAlder() {
-		return år - this.fødselsår;
+		return år - this.personalia.getFødselsår();
 	}
 
 	public int getÅrAnsatt() {
 		return år - this.ansettelseår;
 	}
 
+	public void setAnsettelsesÅr(int år) {
+		this.ansettelseår = år;
+	}
+
+	public void setArbTakerNr(int nr) {
+		this.arbtakernr = nr;
+	}
+	public void setMånedslønnBrutto(double månedslønnBrutto) {
+		this.månedslønnBrutto = månedslønnBrutto;
+	}
+
 	public String getFultNavn() {
-		return (this.etternavn + " , " + this.fornavn);
+		return (this.personalia.getEtternavn() + " , " + this.personalia.getFornavn());
 	}
 
 	public boolean sjekkÅrAnsatt(int antallÅr) {
@@ -54,24 +57,15 @@ public class ArbTaker extends Person {
 			return true;
 		}
 		return false;
-
 	}
 
-	public void setFornavn(String fornavn) {
-		this.fornavn = fornavn;
-	}
 
-	public void setEtternavn(String etternavn) {
-		this.etternavn = etternavn;
-	}
 
-	public void setMånedslønnBrutto(double månedslønnBrutto) {
-		this.månedslønnBrutto = månedslønnBrutto;
-	}
-
-	public void setFødselsår(int fødselsår) {
-		this.fødselsår = fødselsår;
-
+	public String toString() {
+		return (this.getFultNavn() + "\n" + this.getAlder() + "\nArbeidstakernr: " + this.arbtakernr
+				+ "\nMånedslønn Brutto: " + this.månedslønnBrutto + "\nSkattbetalt i måneden: " + this.getSkattMåned()
+				+ "\nSkattbetalt i året: " + this.getSkattÅr() + "\nSkatteprosent: " + this.SKATTEPROSENT)
+				+ "\nÅransatt: " + this.getÅrAnsatt();
 	}
 
 }

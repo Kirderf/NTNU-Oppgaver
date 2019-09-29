@@ -26,7 +26,7 @@ public final class TekstBehandling {
 	private String Teksten;
 	private String[] ordMedTegn = {};
 	private String[] ordUtenTegn = {};
-	private char[] skilleTegn = { '.', ',', '!', '?' };
+	private char[] skilleTegn = { '.', ',', '!', '?', ':' };
 	private int[] ordLengder;
 
 	public TekstBehandling(String Teksten) {
@@ -99,6 +99,9 @@ public final class TekstBehandling {
 
 	public String getTeksten() {
 		return Teksten;
+	}
+	public String getStoreTeksten() {
+		return Teksten.toUpperCase();
 	}
 
 }
