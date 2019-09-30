@@ -40,15 +40,15 @@ public class OppgaveOversiktTest {
 				System.out.println("Antall Studenter er :" + Oversikt.finnAntallStudenter());
 			} else if (svar == 3) {
 				Oversikt.toString();
-				Oversikt.økOppgaverStudent();				
-			}else if (svar == 4) {
+				Oversikt.økOppgaverStudent();
+			} else if (svar == 4) {
 				Oversikt.toString();
 				Oversikt.finnAntallOppgStudent();
 			} else if (svar == 5) {
-				for(int i = Oversikt.getStudenter().size()-2; i>=0 ; i--) {
-					System.out.println("\n"+Oversikt.getStudenter().get(i).toString());
+				for (int i = Oversikt.getStudenter().size() - 2; i >= 0; i--) {
+					System.out.println("\n" + Oversikt.getStudenter().get(i).toString());
 				}
-			} 
+			}
 		}
 	}
 }
