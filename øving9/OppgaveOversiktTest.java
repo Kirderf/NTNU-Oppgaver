@@ -2,6 +2,8 @@ package øving9;
 
 import java.util.*;
 
+import javax.swing.JOptionPane;
+
 public class OppgaveOversiktTest {
 
 	public static void main(String[] args) {
@@ -14,30 +16,31 @@ public class OppgaveOversiktTest {
 		System.out.println(Oversikt.finnAntallStudenter());
 
 		while (true) {
-			System.out.println("\nHva vil du gjøre?");
-			System.out.println("1: Ny Student");
-			System.out.println("2: Finne antall Studenter");
-			System.out.println("3: Endre antall godkjente oppgaver til en student");
-			System.out.println("4: Finn antall godkjente oppgaver til en student");
-			System.out.println("5: Skriv ut alle studenter");
-			System.out.println("0: Avslutt");
-			svar = in.nextInt();
+			svar = Integer.parseInt(JOptionPane.showInputDialog(
+					"1: Ny Student\n"
+					+ "2: Finne antall Studenter\n"
+					+ "3: Endre antall godkjente oppgaver til en student\n"
+					+ "4: Finn antall godkjente oppgaver til en student\n"
+					+ "5: Skriv ut alle studenter til konsoll\n"
+					+ "0: Avslutt\n"
+					));
 			if (svar == 0) {
 				System.exit(0);
 			}
 			if (svar == 1) {
 				while (svar != 0) {
 					Oversikt.nyStudent();
-					System.out.println("\nLegge til flere?");
-					System.out.println("1: Ja");
-					System.out.println("0: Nei");
-					svar = in.nextInt();
+					svar = Integer.parseInt(JOptionPane.showInputDialog(
+							"Legge til flere?\n"
+							+ "1: Ja\n"
+							+ "0: Nei"
+							));
 					if (svar == 0) {
 						break;
 					}
 				}
 			} else if (svar == 2) {
-				System.out.println("Antall Studenter er :" + Oversikt.finnAntallStudenter());
+				JOptionPane.showMessageDialog(null, "Antall Studenter er :" + Oversikt.finnAntallStudenter());
 			} else if (svar == 3) {
 				Oversikt.toString();
 				Oversikt.økOppgaverStudent();

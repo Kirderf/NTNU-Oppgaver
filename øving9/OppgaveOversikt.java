@@ -4,6 +4,8 @@ import java.lang.module.FindException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import javax.naming.InvalidNameException;
+import javax.naming.NamingException;
+import javax.swing.JOptionPane;
 
 
 public class OppgaveOversikt {
@@ -21,17 +23,19 @@ public class OppgaveOversikt {
 	}
 
 	public void finnAntallOppgStudent() {
-		Scanner in = new Scanner(System.in);
-		System.out.println("Hvilken student vil du finne godkjente oppgaver til ?");
-		String student = in.next();
-		for (int i = 0; i < studenter.size(); i++) {
+		String student = JOptionPane.showInputDialog("Hvilken student vil du finne godkjente oppgaver til ?");
+		for (int i = 0; i < studenter.size()-1; i++) {
 			try {
 				if (studenter.get(i).navnEqualsTo(student)) {
 					throw new FindException();
+				}else {
+					throw new NamingException();
 				}
 			} catch (FindException FE) {
-				System.out.println(student + " er en student");
-				System.out.println("Godkjente oppgaver er : " + studenter.get(i).getAntOppg());
+				JOptionPane.showMessageDialog(null, student + " er en student");
+				JOptionPane.showMessageDialog(null, "Godkjente oppgaver er : " + studenter.get(i).getAntOppg());
+			} catch	(NamingException notInStudenter) {
+				JOptionPane.showMessageDialog(null, student +" er ikke en student");
 			}
 		}
 
@@ -42,29 +46,27 @@ public class OppgaveOversikt {
 	}
 
 	public void økOppgaverStudent() {
-		Scanner in = new Scanner(System.in);
-		System.out.println("Hvilken student vil du endre ?");
-		String student = in.next();
-		for (int i = 0; i < studenter.size(); i++) {
+		String student = JOptionPane.showInputDialog("Hvilken student vil du endre ?");
+		for (int i = 0; i < studenter.size()-1; i++) {
 			try {
 				if (studenter.get(i).navnEqualsTo(student)) {
 					throw new FindException();
+				}else {
+					throw new NamingException();
 				}
 			} catch (FindException FE) {
-				System.out.println(student + " er en student");
-				System.out.println("Hva er økningen?");
-				int økning = in.nextInt();
+				JOptionPane.showMessageDialog(null, student + " er en student");
+				int økning = Integer.parseInt(JOptionPane.showInputDialog("Hva er økningen?"));
 				studenter.get(i).økAntOppg(økning);
+			} catch	(NamingException notInStudenter) {
+				JOptionPane.showMessageDialog(null, student +" er ikke en student");
 			}
 		}
 
 	}
 
 	public void nyStudent() {
-
-		Scanner in = new Scanner(System.in);
-		System.out.println("Navn: ");
-		String navn = in.nextLine();
+		String navn = JOptionPane.showInputDialog("Navnet på den nye studenten: ");
 		for (int i = 0; i < studenter.size(); i++) {
 			System.out.println(i);
 			try {
@@ -72,7 +74,7 @@ public class OppgaveOversikt {
 					throw new InvalidNameException();
 				}
 			} catch (InvalidNameException INE) {
-				System.out.println(navn + " er opptatt");
+				JOptionPane.showMessageDialog(null, navn + " er opptatt");
 				return;
 			}
 		}
@@ -83,9 +85,11 @@ public class OppgaveOversikt {
 	}
 
 	public String toString() {
+		String studentertoString = "Studenter:";
 		for (int i = studenter.size() - 2; i >= 0; i--) {
-			System.out.println(studenter.get(i).getNAvn());
+			studentertoString += "\n"+studenter.get(i).getNAvn();
 		}
+		JOptionPane.showMessageDialog(null, studentertoString);
 		return "Antallstudenter: " + antStud;
 
 	}
