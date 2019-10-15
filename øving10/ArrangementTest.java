@@ -10,9 +10,9 @@ public class ArrangementTest {
 
 		ArrangmentRegister Oversikt = new ArrangmentRegister();
 		
-		Oversikt.getArrangementList().add(new Arrangement("TESTER Per","NTNA","Bursdag",101910110850L)); // 1019 1011 0850
-		Oversikt.getArrangementList().add(new Arrangement("TESTER Arne","NTNB","Bursdag",12010110850L)); // 120 1011 0850
-		Oversikt.getArrangementList().add(new Arrangement("TESTER Bjarne","NTNA","Bursdag",201810110850L)); // 2018 1011 0850
+		Oversikt.getArrangementList().add(new Arrangement("TESTER Per","NTNA",null,"Bursdag",101910110850L)); // 1019 1011 0850
+		Oversikt.getArrangementList().add(new Arrangement("TESTER Arne","NTNB",null,"Bursdag",12010110850L)); // 120 1011 0850
+		Oversikt.getArrangementList().add(new Arrangement("TESTER Bjarne","NTNA",null,"Bursdag", 201810110850L)); // 2018 1011 0850
 		
 		Oversikt.addArrangement();
 		

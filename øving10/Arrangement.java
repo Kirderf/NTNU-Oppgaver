@@ -16,12 +16,14 @@ public class Arrangement {
 	private String navn;
 	private String sted;
 	private String type;
+	private String arrangør;
 	private long klokkaogdato;
 
-	public Arrangement(String navn, String sted, String type, long datoklokkeslett) { // registrere ett nytt arrangment
+	public Arrangement(String navn, String sted,String arrangør, String type, long datoklokkeslett) { // registrere ett nytt arrangment
 		this.setNavn(navn);
 		this.setType(type);
 		this.setSted(sted);
+		this.setArrangør(arrangør);
 		this.setKlokkaogdato(datoklokkeslett);
 		
 	}
@@ -48,6 +50,14 @@ public class Arrangement {
 
 	public void setSted(String sted) {
 		this.sted = sted;
+	}
+
+	public String getArrangør() {
+		return arrangør;
+	}
+
+	public void setArrangør(String arrangør) {
+		this.arrangør = arrangør;
 	}
 
 	public String getType() {
