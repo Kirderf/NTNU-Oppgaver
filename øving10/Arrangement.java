@@ -1,5 +1,7 @@
 package øving10;
 
+import java.util.Comparator;
+
 /* Å registrere et nytt arrangement
 • Å finne alle arrangementer på et gitt sted
 • Å finne alle arrangementer på en gitt dato
@@ -21,7 +23,7 @@ public class Arrangement {
 		this.setType(type);
 		this.setSted(sted);
 		this.setKlokkaogdato(datoklokkeslett);
-
+		
 	}
 
 	public int getNummer() {
@@ -79,13 +81,35 @@ public class Arrangement {
 			return false;
 		}
 	}
-	public long compareTo(long datoogklokka) {
-		if
-	}
 	@Override
 	public String toString() {
-		return "Arrangement [nummer=" + nummer + ", navn=" + navn + ", sted=" + sted + ", type=" + type
+		return "\nArrangement [nummer=" + nummer + ", navn=" + navn + ", sted=" + sted + ", type=" + type
 				+ ", klokkaogdato=" + klokkaogdato + "]";
 	}
 
+}
+class SortbyTime implements Comparator<Arrangement>{
+	@Override
+	public int compare(Arrangement o1, Arrangement o2) {
+		if(o1.getDatoOgKlokka()>o2.getDatoOgKlokka()) {
+			return -1;
+		}
+		if(o1.getDatoOgKlokka()<o2.getDatoOgKlokka()) {
+			return 1;
+		}
+		return 0;
+	}
+}
+
+class SortbyName implements Comparator<Arrangement>{
+	@Override
+	public int compare(Arrangement o1, Arrangement o2) {
+		return o1.getNavn().compareTo(o2.getNavn());
+	}
+}
+class SortbyType implements Comparator<Arrangement>{
+	@Override
+	public int compare(Arrangement o1, Arrangement o2) {
+		return o1.getType().compareTo(o2.getType());
+	}
 }
